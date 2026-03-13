@@ -7,7 +7,7 @@
 
 pkgname=libass
 pkgver=0.17.4
-pkgrel=0
+pkgrel=${pkgrel:-0}
 pkgdesc="Portable library for SSA/ASS subtitle rendering"
 url="https://github.com/libass/libass"
 arch="all"
@@ -46,6 +46,7 @@ package() {
     make DESTDIR="$pkgdir" install
 }
 
+options="$options ${DISABLE_CHECK:+!check}"
 sha512sums="
 0dd9a869644a7898531c9cb40a05e41fe6a7a9105e95f723af3a9801f7b98d34970e296247894256c8bac1d01c9e2a8113dd4e3d485fdcca70343931e6e40dd0  libass-0.17.4.tar.xz
 "
